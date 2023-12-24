@@ -108,7 +108,7 @@ class Radar:
             else:
                 self.__com.readline()  # flush buffer
         else:
-            time.sleep(0.05)
+            time.sleep(0.04)
 
         self.__header_1 = int.from_bytes(self.__buffer[0:2].tobytes(), byteorder='little', signed=False)
         self.__header_2 = int.from_bytes(self.__buffer[2:4].tobytes(), byteorder='little', signed=False)

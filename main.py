@@ -8,7 +8,7 @@ from utils.system_communication import AdasCANCommunication, ClusterCANCommunica
 
 np.set_printoptions(precision=2)
 
-forward_radar = Radar(serial_port='COM8', serial_baudrate=921600)
+forward_radar = Radar(serial_port='COM3', serial_baudrate=921600)
 vehicle_can_ch = can.interface.Bus(bustype='pcan', channel='PCAN_USBBUS1', bitrate=500000)
 
 adas_can_parser = AdasCANCommunication(dbc_filename='resource/ADAS_can_protocol.dbc')

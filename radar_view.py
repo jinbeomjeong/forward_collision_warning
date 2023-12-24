@@ -7,8 +7,8 @@ from utils.system_communication import Radar
 
 np.set_printoptions(precision=2)
 
-forward_radar = Radar(serial_port='COM8', serial_baudrate=921600)
-radar_filter = DBSCAN(eps=0.05, min_samples=3, n_jobs=4)
+forward_radar = Radar(serial_port='COM3', serial_baudrate=406800)
+radar_filter = DBSCAN(eps=0.005, min_samples=3, n_jobs=4)
 
 
 def radar_com():
@@ -48,7 +48,7 @@ while True:
                 y_pos = []
 
                 for i, point in enumerate(radar_set):
-                    if -1 <= point[0] <= 1:
+                    if -0.5 <= point[0] <= 0.5:
                         x_pos.append(point[0])
                         y_pos.append(point[1])
 
@@ -61,8 +61,8 @@ while True:
         plt.clf()
         plt.scatter(x=radar_points[:, 0], y=radar_points[:, 1], c=clu_id_list)
         plt.xlim(-3, 3)
-        plt.ylim(0, 10)
-        plt.pause(0.05)
+        plt.ylim(0, 20)
+        plt.pause(0.01)
 
-    print(forward_distance)
-    time.sleep(0.02)
+        print(forward_distance)
+    #time.sleep(0.02)
