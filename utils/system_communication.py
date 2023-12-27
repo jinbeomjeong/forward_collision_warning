@@ -18,11 +18,12 @@ class AdasCANCommunication:
         return time.time() - self.__t0
 
     def get_vehicle_status(self, packet: can.Message):
-        data = self.__adas_can_db.decode_message(packet.arbitration_id, packet.data)
-        self.__vehicle_speed = data['vehicle_speed_high_precision']
-        self.__steering_angle = data['steering_angle']
-        self.__winker_status[0] = data['turn_signal_left_indicate']
-        self.__winker_status[1] = data['turn_signal_right_indicate']
+        if packet.arbitration_id == self.__vehicle_status_message.frame_id:
+            data = self.__adas_can_db.decode_message(packet.arbitration_id, packet.data)
+            self.__vehicle_speed = data['vehicle_speed_high_precision']
+            self.__steering_angle = data['steering_angle']
+            self.__winker_status[0] = data['turn_signal_left_indicate']
+            self.__winker_status[1] = data['turn_signal_right_indicate']
 
     def create_dsm_can_msg(self, dsm_state: int = 0) -> can.Message():
         data = self.__dsm_message.encode(data={'state_of_DSM': dsm_state})

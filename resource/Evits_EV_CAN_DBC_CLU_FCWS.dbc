@@ -36,6 +36,20 @@ BS_:
 BU_:
 
 
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ TM_Out_Revo_Cnt : 0|32@1+ (1,0) [0|16777215] "rev" Vector__XXX
+ SG_ battery_Temp : 0|8@1+ (1,-40) [-40|215] "กษ" Vector__XXX
+ SG_ EscOff : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ AutoHold : 0|2@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ LaneDepature : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ Steering : 0|2@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ParkBrake : 0|2@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ MotorFailure : 0|2@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ HvWarning : 0|2@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ TpmsWarning : 0|2@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Esc : 0|2@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ dsm : 0|2@1+ (1,0) [0|1] "" Vector__XXX
+
 BO_ 703 CLU_2BF: 8 Vector__XXX
  SG_ vehicle_speed_hr : 48|16@1+ (0.01,0) [0|0] "km/h" Vector__XXX
  SG_ key : 4|4@1+ (1,0) [0|0] "" Vector__XXX
@@ -79,19 +93,7 @@ BO_ 674 CLU_VCU_2A2: 8 Vector__XXX
  SG_ Chcrging_End_Time_mm : 48|8@1+ (1,0) [0|255] "" Vector__XXX
 
 BO_ 673 CLU_VCU_2A1: 8 Vector__XXX
- SG_ TM_Out_Revo_Cnt : 0|32@1+ (1,0) [0|16777215] "rev" Vector__XXX
- SG_ battery_Temp : 32|8@1+ (1,-40) [-40|215] "กษ" Vector__XXX
- SG_ EscOff : 56|2@1+ (1,0) [0|3] "" Vector__XXX
- SG_ AutoHold : 40|2@1+ (1,0) [0|1] "" Vector__XXX
- SG_ LaneDepature : 42|2@1+ (1,0) [0|3] "" Vector__XXX
- SG_ Steering : 44|2@1+ (1,0) [0|1] "" Vector__XXX
- SG_ ParkBrake : 46|2@1+ (1,0) [0|1] "" Vector__XXX
- SG_ MotorFailure : 48|2@1+ (1,0) [0|1] "" Vector__XXX
- SG_ HvWarning : 50|2@1+ (1,0) [0|1] "" Vector__XXX
- SG_ TpmsWarning : 52|2@1+ (1,0) [0|1] "" Vector__XXX
- SG_ Esc : 54|2@1+ (1,0) [0|1] "" Vector__XXX
  SG_ fcws : 58|2@1+ (1,0) [0|1] "" Vector__XXX
- SG_ dsm : 60|2@1+ (1,0) [0|1] "" Vector__XXX
 
 BO_ 688 CLU_2B0: 8 Vector__XXX
  SG_ Month : 8|8@1+ (1,0) [0|255] "" Vector__XXX
@@ -102,6 +104,7 @@ BO_ 688 CLU_2B0: 8 Vector__XXX
 
 
 
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
 BA_DEF_  "BusType" STRING ;
 BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
 BA_DEF_ SG_  "GenSigStartValue" FLOAT -3.4E+038 3.4E+038;
@@ -114,6 +117,8 @@ BA_ "GenMsgCycleTime" BO_ 674 100;
 BA_ "GenMsgCycleTime" BO_ 673 100;
 BA_ "GenMsgCycleTime" BO_ 688 100;
 BA_ "GenSigStartValue" SG_ 672 Vehicle_Power_Flow 100;
+VAL_ 3221225472 LaneDepature 0 "OFF" 1 "Warning Left" 2 "Warning Right" 3 "Normal" ;
+VAL_ 3221225472 dsm 0 "OFF" 1 "ON" ;
 VAL_ 672 Traction_Motor_Status 0 "Non-Traction Power" 1 "Traction Power" 2 "Reserve" 3 "Reserve" ;
 VAL_ 672 Reg_Brk_Pow_Status 0 "Non-Regain Power" 1 "Regain Power" 2 "Reserve" 3 "Reserve" ;
 VAL_ 672 Battery_Charging_Status 0 "Normal" 1 "Charging" 2 "n/a" 3 "n/a" ;
@@ -131,7 +136,5 @@ VAL_ 674 ESC_VDC_Switch_Lamp 0 "Off" 1 "On" ;
 VAL_ 674 ABS_Defective 0 "not Defective" 1 "Defective" ;
 VAL_ 674 ABS_Warning_Lamp 0 "Off" 1 "On" ;
 VAL_ 674 ABS_Buzzer_Sound 0 "3 time" 1 "4 time" 2 "5 time" ;
-VAL_ 673 LaneDepature 0 "OFF" 1 "Warning Left" 2 "Warning Right" 3 "Normal" ;
 VAL_ 673 fcws 0 "OFF" 1 "ON" ;
-VAL_ 673 dsm 0 "OFF" 1 "ON" ;
 
