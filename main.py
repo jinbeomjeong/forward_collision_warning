@@ -61,7 +61,6 @@ vehicle_can_parsing_task.start()
 
 while True:
     elapsed_time = time.time() - start_time
-    vehicle_speed = adas_can_parser.read_vehicle_speed()
 
     if forward_radar.read_n_point_clouds():
         radar_points = forward_radar.read_point_clouds()
